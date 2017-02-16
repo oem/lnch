@@ -13,7 +13,7 @@ func main() {
 		fmt.Println("Usage: lnch <command>")
 		os.Exit(1)
 	}
-	cmd := exec.Command(os.Args[1])
+	cmd := exec.Command(os.Args[1], os.Args[2:]...)
 
 	// this is the important part to avoid killing the child process instantly
 	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
